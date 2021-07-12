@@ -4,6 +4,44 @@
     <link>https://syeikhanugrah.github.io/</link>
     <description>Recent content on Sehan</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://syeikhanugrah.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Jul 2021 20:32:56 +0700</lastBuildDate><atom:link href="https://syeikhanugrah.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+    <title>SSH ke server dengan alias</title>
+    <link>https://syeikhanugrah.github.io/posts/ssh-ke-server-dengan-alias/</link>
+    <pubDate>Mon, 12 Jul 2021 20:32:56 +0700</pubDate>
+    
+    <guid>https://syeikhanugrah.github.io/posts/ssh-ke-server-dengan-alias/</guid>
+    <description>
+        &lt;p&gt;Mungkin bagi kamu yang kesehariannya bolak-balik ke server biasanya lupa mengingat IP server, user di server tersebut,
+dan belum lagi berbagai port yang unik-unik.&lt;/p&gt;
+&lt;p&gt;Kali ini saya akan share cara native dari konfigurasi OpenSSH, tapi sebelum itu diasumsikan kamu udah setup SSH di
+komputer kamu ya. Kalo belum, kamu bisa baca &lt;a href=&#34;https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&#34; target=&#34;_blank&#34;&gt;disini&lt;/a&gt; untuk cara setup SSH di komputer kamu.&lt;/p&gt;
+&lt;h2 id=&#34;lokasi-file-konfigurasi-ssh&#34;&gt;Lokasi file konfigurasi SSH&lt;/h2&gt;
+&lt;p&gt;File konfigurasi OpenSSH bernama &lt;code&gt;config&lt;/code&gt;, dan disimpan di direktori &lt;code&gt;~/.ssh&lt;/code&gt;. By default, file konfigurasi SSH mungkin ga ada, jadi kamu mungkin perlu membuatnya menggunakan perintah berikut terlebih dulu.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ touch ~/.ssh/config&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&#34;format-file-konfigurasi-ssh&#34;&gt;Format file konfigurasi SSH&lt;/h2&gt;
+&lt;p&gt;File konfigurasi SSH mempunyai struktur seperti berikut:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;Host host1
+    SSH_OPTION value
+    SSH_OPTION value
+
+Host host2
+    SSH_OPTION value&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Isi file konfigurasi SSH diatur ke dalam bagian. Setiap bagian dimulai dengan direktif Host dan berisi opsi SSH khusus yang digunakan saat membuat koneksi dengan server SSH jarak jauh. Indentasi ga diperluin tapi disarankan karena membuat file lebih gampang dibaca. Untuk daftar lengkap opsi ssh yang tersedia lihat &lt;a href=&#34;https://man.openbsd.org/OpenBSD-current/man5/ssh_config.5&#34; target=&#34;_blank&#34;&gt;disini&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;FYI: File konfigurasi SSH juga dibaca oleh program &lt;code&gt;scp&lt;/code&gt;, &lt;code&gt;sftp&lt;/code&gt;, dan &lt;code&gt;rsync&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;contoh-konfigurasi-ssh&#34;&gt;Contoh konfigurasi SSH&lt;/h2&gt;
+&lt;p&gt;Biasanya, saat menghubungkan ke server via SSH, kamu harus tau nama user, nama host, dan port. Misalnya, untuk masuk sebagai user &lt;code&gt;ubuntu&lt;/code&gt; ke host &lt;code&gt;107.40.13.145&lt;/code&gt; pada port &lt;code&gt;8001&lt;/code&gt; dari console, kamu harus ngetik:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ ssh ubuntu@107.40.13.145 -p &lt;span class=&#34;m&#34;&gt;8001&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Untuk terhubung ke server menggunakan opsi yang sama seperti yang diketikan pada command di atas, cukup dengan mengetik &lt;code&gt;ssh mysql-prod&lt;/code&gt; misalnya, masukkan konfigurasi berikut ke file &lt;code&gt;~/.ssh/config&lt;/code&gt; kamu:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;Host mysql-prod
+    HostName 107.40.13.145
+    User ubuntu
+    Port 8001&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sekarang ketika kamu ngetik &lt;code&gt;ssh mysql-prod&lt;/code&gt; dengan gaya di console, ssh akan membaca file konfigurasi dan menggunakan detail koneksi yang ditentukan untuk host &lt;code&gt;mysql-prod&lt;/code&gt;. Gampang kan? kalo ada server baru lagi, kamu tinggal nambah bagian baru di file konfigurasi ssh nya. Kalo masih ada yang bingung, tanya aja di komentar ya.&lt;/p&gt;
+
+    </description>
+    </item>
+    
   </channel>
 </rss>
