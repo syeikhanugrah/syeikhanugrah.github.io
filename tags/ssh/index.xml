@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on Sehan</title>
+    <link>https://syeikhanugrah.github.io/tags/ssh/</link>
+    <description>Recent content in ssh on Sehan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Jul 2021 20:32:56 +0700</lastBuildDate><atom:link href="https://syeikhanugrah.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSH ke server dengan alias</title>
+      <link>https://syeikhanugrah.github.io/posts/ssh-ke-server-dengan-alias/</link>
+      <pubDate>Mon, 12 Jul 2021 20:32:56 +0700</pubDate>
+      
+      <guid>https://syeikhanugrah.github.io/posts/ssh-ke-server-dengan-alias/</guid>
+      <description>Mungkin bagi kamu yang kesehariannya bolak-balik ke server biasanya lupa mengingat IP server, user di server tersebut, dan belum lagi berbagai port yang unik-unik.
+Kali ini saya akan share cara native dari konfigurasi OpenSSH, tapi sebelum itu diasumsikan kamu udah setup SSH di komputer kamu ya. Kalo belum, kamu bisa baca disini untuk cara setup SSH di komputer kamu.
+Lokasi file konfigurasi SSH File konfigurasi OpenSSH bernama config, dan disimpan di direktori ~/.</description>
+    </item>
+    
+  </channel>
+</rss>
